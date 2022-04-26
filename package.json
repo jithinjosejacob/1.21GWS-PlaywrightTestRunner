@@ -1,0 +1,26 @@
+{
+  "name": "1.21gws-playwrighttestrunner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jithinjosejacob/1.21GWS-PlaywrightTestRunner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jithinjosejacob/1.21GWS-PlaywrightTestRunner/issues"
+  },
+  "homepage": "https://github.com/jithinjosejacob/1.21GWS-PlaywrightTestRunner#readme",
+  "dependencies": {
+    "playwright": "^1.21.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.21.1"
+  }
+}
