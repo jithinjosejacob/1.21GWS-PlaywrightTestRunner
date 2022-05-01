@@ -4,3 +4,4 @@ test-results
 test-results/
 playwright-report/
 storage
+.DS_Store

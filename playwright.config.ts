@@ -1,5 +1,4 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -34,7 +33,7 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 2 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [ ['html', { open: 'never' }] ],
+  reporter: [['html', { open: 'never' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -44,66 +43,12 @@ const config: PlaywrightTestConfig = {
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
+    video: 'on',
+    screenshot: 'on'
   },
 
   /* Configure projects for major browsers */
   projects: [
-       // iPhone 13 Pro Max tests use WebKit browser.
-       {
-        name: 'iPhone13ProMax',
-        use: {
-          browserName: 'webkit',
-          headless: false,
-          ...devices['iPhone 13 Pro Max'],
-        },
-      },
-
-      // Galaxy tests use Chromium browser.
-      {
-        name: 'Pixel5',
-        use: {
-          browserName: 'chromium',
-          channel: 'chrome',
-          headless: false,
-          ...devices['Pixel 5 landscape'],
-        },
-      },
-
-    // {
-    //   name: 'firefox',
-    //   use: {
-    //     ...devices['Desktop Firefox'],
-    //   },
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: {
-    //     ...devices['Desktop Safari'],
-    //   },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //   },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: {
-    //     channel: 'msedge',
-    //   },
-    // },
     {
       name: 'GoogleChrome',
       use: {
@@ -112,6 +57,26 @@ const config: PlaywrightTestConfig = {
         headless: false,
       },
     },
+    // Desktop Safari
+    {
+      name: 'DesktopSafari',
+      use: {
+        browserName: 'webkit',
+        // WebKit and Firefox are only compatible with Playwright’s internal builds
+        viewport: { width: 1200, height: 750 },
+      }
+    },
+
+    // Desktop Firefox
+    {
+      name: 'DesktopFirefox',
+      use: {
+        browserName: 'firefox',
+        // WebKit and Firefox are only compatible with Playwright’s internal builds
+        viewport: { width: 800, height: 600 },
+      }
+    }
+
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */

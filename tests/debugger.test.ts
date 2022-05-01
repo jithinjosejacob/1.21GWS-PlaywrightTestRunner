@@ -1,10 +1,10 @@
-// Test Cases for Trace Viewer.
+// Test Cases for debugger.
 import { test } from '@playwright/test';
 
 test.use({ storageState: './storage/standard.json' })
-test.describe('Trace Viewer', () => {
+test.describe('Debugger', () => {
 
-  test('Trace Viewer', async ({ page }) => {
+  test('Debugger', async ({ page }) => {
     await page.goto('https://react-redux.realworld.io/')
     await page.click(`//a[contains(text(),'Global Feed')]`)
     await page.click(`//a[contains(text(),'New Post')]`)
