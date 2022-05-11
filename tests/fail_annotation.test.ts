@@ -5,6 +5,7 @@ test.describe('Fail Annotation', () => {
 
   // test.skip -for skipping tests.
   // test.only - for running that specific test.
+  // test.slow()- for slow tests, triples timeout.
   test('Fail Annotation', async ({ page }) => {
     test.fail(); // Bug123 yet to be fixed.
     await page.goto('https://react-redux.realworld.io/')

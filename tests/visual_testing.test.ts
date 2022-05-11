@@ -7,7 +7,7 @@ test.describe('Visual Testing', () => {
 
     //await page.goto('https://www.google.com',{waitUntil:'networkidle'})
     await page.goto('https://react-redux.realworld.io/', { waitUntil: 'networkidle' })
-    expect(await page.screenshot()).toMatchSnapshot();
+    expect(await page.screenshot({scale: 'css'})).toMatchSnapshot();
     // For specifiying max difference pixels.
     //  expect(await page.screenshot()).toMatchSnapshot({ maxDiffPixels: 100 });});
     // Wait for 6 seconds for demo.
